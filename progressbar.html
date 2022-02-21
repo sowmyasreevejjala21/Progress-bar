@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<style>
+#myProgress1, #myProgress2, #myProgress3, #myProgress4, #myProgress5 {
+  width: 400px;
+  background-color: #ddd;
+  border-radius: 30px;
+  margin-top: 20px;
+}
+
+#myProgress1 #myBar, #myProgress2 #myBar, #myProgress3 #myBar, #myProgress4 #myBar, #myProgress5 #myBar  {
+	width: 50%;
+    height: 20px;
+    background-color: #04AA6D;
+    text-align: right;
+    color: #fff;
+    border-radius: 30px;
+	border: 2px solid #ddd;
+	color: #000;
+}
+#myProgress1 #myBar {
+	background-color: green;
+}
+
+#myProgress2 #myBar {
+	background-color: orange;
+}
+#myProgress3 #myBar {
+	background-color: white;
+}
+#myProgress4 #myBar {
+	background-color: blue;
+}
+#myProgress5 #myBar {
+	background-color: yellow;
+}
+#myProgress1 #myBarFull, #myProgress2 #myBarFull, #myProgress3 #myBarFull, #myProgress4 #myBarFull,#myProgress5 #myBarFull {
+	width: 100%;
+	display: none;
+	height: 20px;
+    text-align: right;
+    color: #fff;
+    border-radius: 30px;
+	border: 2px solid #ddd;
+	color: #000;
+}
+#myProgress1 #myBarFull {
+	background-color: green;
+}
+
+#myProgress2 #myBarFull {
+	background-color: orange;
+}
+#myProgress3 #myBarFull {
+	background-color: white;
+}
+#myProgress4 #myBarFull {
+	background-color: blue;
+}
+#myProgress5 #myBarFull {
+	background-color: yellow;
+}
+</style>
+<body>
+
+<div id="myProgress1">
+  <div id="myBar"> 50%</div>
+  <div id="myBarFull"> 100%</div>
+</div>
+<div id="myProgress2">
+  <div id="myBar"> 50%</div>
+  <div id="myBarFull"> 100%</div>
+</div>
+<div id="myProgress3">
+  <div id="myBar"> 50%</div>
+  <div id="myBarFull"> 100%</div>
+</div>
+<div id="myProgress4">
+  <div id="myBar"> 50%</div>
+  <div id="myBarFull"> 100%</div>
+</div>
+<div id="myProgress5">
+  <div id="myBar"> 50%</div>
+  <div id="myBarFull"> 100%</div>
+</div>
+
+<br>
+<button onclick="move()">Click Me</button> 
+
+<script>
+var i = 0;
+function move() {
+  if (i == 0) {
+    i = 1;
+    var elem = document.querySelectorAll("#myBar");
+	var elem = document.querySelectorAll("#myBar");
+
+    var width = 50;
+    var id = setInterval(frame, 10);
+    function frame() {
+	debugger;
+      if (width >= 100) {
+
+        clearInterval(id);
+        i = 0;
+      } else {
+        width++;
+		for(let i=0; i<elem.length; i++) {
+			elem[i].style.width = width + "%";
+		}
+        
+		
+	  document.querySelector("#myBar").style.display = "none";
+	  	  document.querySelector("#myBarFull").style.display = "block";
+      }
+    }
+  }
+}
+</script>
+
+</body>
+</html>
